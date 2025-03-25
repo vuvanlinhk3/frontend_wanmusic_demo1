@@ -1,0 +1,43 @@
+.card {
+    background-color: #374151;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .songItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4b5563;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  .songInfo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .image {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+  }
+  
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+  }

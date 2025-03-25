@@ -1,24 +1,20 @@
-// TopResult.jsx
+// components/TopResult.jsx
 import React from 'react';
-import styles from '../../styles/TopResult.module.css';
-import { PlayArrow } from '@mui/icons-material';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import styles from '../../styles/stylesSearch/TopResult.module.css';
 
-const TopResult = () => {
+const TopResult = ({ title = "Nếu Những Tiếc Nuối", artist = "Vũ.", imageUrl }) => {
   return (
     <div className={styles.card}>
-      <h2 className={styles.sectionTitle}>Top result</h2>
+      <h2 className={styles.title}>Top result</h2>
       <div className={styles.content}>
-        <img
-          src="https://storage.googleapis.com/a1aa/image/qqjOsrD7ZSbi0EOr1n6yOAzCmwp9EjfWn-UPScxqDB0.jpg"
-          alt="Top result"
-          className={styles.image}
-        />
-        <div className={styles.info}>
-          <h3 className={styles.title}>Nếu Những Tiếc Nuối</h3>
-          <p className={styles.artist}>Vũ.</p>
+        <img src={imageUrl} alt="Top result" className={styles.image} />
+        <div>
+          <h3 className={styles.songTitle}>{title}</h3>
+          <p>{artist}</p>
         </div>
         <button className={styles.playButton}>
-          <PlayArrow className={styles.playIcon} />
+          <PlayArrowIcon className={styles.playIcon} />
         </button>
       </div>
     </div>

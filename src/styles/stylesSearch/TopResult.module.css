@@ -1,0 +1,60 @@
+/* styles/stylesSearch/TopResult.module.css */
+.card {
+    background-color: #ffffff; /* White background like Spotify */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+    border: 1px solid #e5e5e5; /* Light border */
+  }
+  
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #181818; /* Dark gray text for contrast */
+    margin-bottom: 16px;
+  }
+  
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Increased spacing for a cleaner look */
+  }
+  
+  .image {
+    width: 100px; /* Slightly larger image */
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover; /* Ensures image fits nicely */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle image shadow */
+  }
+  
+  .songTitle {
+    font-size: 22px; /* Larger title for emphasis */
+    font-weight: 700;
+    color: #181818; /* Dark text */
+    margin-bottom: 4px;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #535353; /* Softer gray for artist name */
+  }
+  
+  .playButton {
+    background-color: #1db954; /* Spotify's green */
+    padding: 14px; /* Larger button */
+    border-radius: 50%; /* Circular button */
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease; /* Smooth hover effects */
+  }
+  
+  .playButton:hover {
+    transform: scale(1.05); /* Slight scale on hover */
+    background-color: #1ed760; /* Lighter green on hover */
+  }
+  
+  .playIcon {
+    color: #ffffff; /* White icon */
+    font-size: 20px; /* Slightly larger icon */
+  }
