@@ -1,0 +1,96 @@
+/* Container của Navbar */
+  /* Fixed Navbar on the left */
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  li{
+    list-style-type: none;
+  }
+  /* Fixed Navbar below the Header on the left */
+.navbar-container {
+  position: fixed;
+  top: 80px; /* Match the header height */
+  left: 0;
+  width: 250px; /* Adjust width as needed */
+  height: calc(100vh - 80px); /* Full height minus header */
+  z-index: 10; /* Below header but above content */
+}
+
+/* Sidebar (Navbar) */
+.navbar-sidebar {
+  height: 100%;
+  border-right: .1rem solid var(--border-color-r);
+  padding: 1rem;
+
+}
+
+/* Tiêu đề */
+.sidebar-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: black;
+  padding: 0 2rem;
+}
+
+/* Danh sách menu */
+.sidebar-menu {
+  padding: 1rem 0;
+}
+
+/* Menu item */
+.menu-item {
+  padding: .5rem 2rem;
+  margin: .5rem 0;
+  transition: all .2s linear;
+}
+
+/* active dasboard */
+.active-dashboard{
+  color: var(--primary-color);
+  border-left:0.2rem solid var(--primary-color);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+
+/* Link menu */
+.menu-link {
+  display: flex;
+  align-items: center;
+  transition: all .2s linear;
+}
+
+.menu-link:hover{
+  color: var(--primary-color);
+}
+.menu-link span{
+  padding-left: 1rem;
+}
+/* Icon */
+.menu-icon {
+
+}
+
+/* Nút New Playlist */
+.action-button {
+  padding: .5rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--text-color-white);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 2rem;
+  border: 1px solid var(--primary-color); /* Thêm viền khi hover */
+  transition: all .2s linear;
+}
+
+.action-button:hover {
+  background-color: white;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color); /* Thêm viền khi hover */
+}
+
+/* Menu phụ */
+.sidebar-menu.secondary {
+  margin-top: auto;
+}
+
+/* Key Frame */

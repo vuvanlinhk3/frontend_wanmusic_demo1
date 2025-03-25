@@ -1,0 +1,153 @@
+.headerGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    color: #718096;
+    margin-bottom: 12px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .centered {
+    text-align: center;
+  }
+  
+  .rightAligned {
+    text-align: right;
+  }
+  
+  
+  .releaseList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .releaseItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .releaseItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .evenItem {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .oddItem {
+    background-color: rgba(237, 242, 247, 0.8);
+  }
+  
+  .releaseInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 2;
+  }
+  
+  .albumImage {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .releaseItem:hover .albumImage {
+    transform: scale(1.05);
+  }
+  
+  .releaseTitle {
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .artist {
+    color: #718096;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  
+  .releaseDate {
+    color: #718096;
+    text-align: center;
+    font-size: 14px;
+    flex: 1;
+  }
+  
+  .durationWrapper {
+    color: #718096;
+    text-align: right;
+    font-size: 14px;
+    flex: 1;
+    position: relative;
+  }
+  
+  .duration {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+  
+  .releaseItem:hover .duration {
+    opacity: 0;
+  }
+  
+  .iconContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .releaseItem:hover .iconContainer {
+    opacity: 1;
+  }
+  
+  .iconContainer svg {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #718096;
+  }
+  
+  .iconContainer svg:hover {
+    color: #5a67d8;
+    transform: scale(1.2);
+  }
+  
+  .premiumBadge {
+    background-color: #f6e05e;
+    color: #2d3748;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .loading {
+    text-align: center;
+    color: #718096;
+    font-size: 16px;
+    padding: 20px;
+  }

@@ -1,0 +1,197 @@
+.musicPlayerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: #ffffff; /* White background like Spotify */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Left Section */
+.musicPlayerLeft {
+  display: flex;
+  align-items: center;
+  width: 20%;
+}
+
+.albumCover {
+  width: 56px; /* Smaller, Spotify-like size */
+  height: 56px;
+  border-radius: 4px;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.albumCover:hover {
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+.albumInfo {
+  margin-left: 1rem;
+}
+
+.albumTitle {
+  font-size: 0.875rem; /* Smaller, like Spotify */
+  font-weight: 600;
+  color: #121212; /* Dark text */
+  margin: 0;
+}
+
+.albumArtist {
+  font-size: 0.75rem;
+  color: #6b7280; /* Gray text */
+  margin: 0;
+}
+
+/* Center Section */
+.musicPlayerCenter {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.playerControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem; /* Wider spacing like Spotify */
+  margin-bottom: 0.5rem;
+}
+
+.controlButton {
+  background: none;
+  border: none;
+  color: #6b7280; /* Gray icons */
+  font-size: 1.25rem; /* Slightly larger */
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.controlButton:hover {
+  color: #1db954; /* Spotify green on hover */
+}
+
+.playButton {
+  background-color: #ffffff;
+  color: #121212; /* Dark icon */
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.2s ease;
+}
+
+.playButton:hover {
+  background-color: #1db954; /* Spotify green */
+  color: #ffffff; /* White icon */
+  transform: scale(1.1); /* Slight scale-up like Spotify */
+}
+
+.progressBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.time {
+  font-size: 0.75rem;
+  color: #6b7280; /* Gray text */
+}
+
+.progressSlider {
+  width: 70%; /* Wider like Spotify */
+  height: 4px; /* Thinner, modern look */
+  appearance: none;
+  background: #d1d5db; /* Light gray track */
+  border-radius: 2px;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.progressSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #1db954; /* Spotify green */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.progressSlider:hover::-webkit-slider-thumb {
+  transform: scale(1.2); /* Slight enlarge on hover */
+}
+
+.progressSlider::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #1db954 0%, #1db954 var(--value), #d1d5db var(--value), #d1d5db 100%);
+}
+
+/* Right Section */
+.musicPlayerRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 20%;
+  gap: 1rem; /* Wider spacing */
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  color: #6b7280; /* Gray icons */
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.actionButton:hover {
+  color: #1db954; /* Spotify green on hover */
+}
+
+.volumeControl {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.volumeSlider {
+  width: 90px; /* Slightly wider */
+  height: 4px; /* Thinner */
+  appearance: none;
+  background: #d1d5db; /* Light gray track */
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.volumeSlider::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #1db954; /* Spotify green */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.volumeSlider:hover::-webkit-slider-thumb {
+  transform: scale(1.2); /* Slight enlarge on hover */
+}
+
+.volumeSlider::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #1db954 0%, #1db954 var(--value), #d1d5db var(--value), #d1d5db 100%);
+}

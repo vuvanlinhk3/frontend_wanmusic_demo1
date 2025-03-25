@@ -1,0 +1,205 @@
+/* Login.module.css */
+@keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .loginContainer {
+    min-height: 100vh;
+    background: linear-gradient(
+      135deg,
+      #00C4B4 0%,    /* Cyan nhạt */
+      #40C4FF 25%,   /* Xanh dương nhạt */
+      #F1F8E9 50%,   /* Trắng xanh nhạt */
+      #FFD700 75%,   /* Vàng nhạt */
+      #FF6F61 100%   /* Cam nhạt */
+    );
+    background-size: 200% 200%;
+    animation: gradientFlow 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .loginBox {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid rgba(0, 196, 180, 0.2);
+  }
+  .loginLogo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+   .dLogo{
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+   }
+   .aLogo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .title {
+    text-align: center;
+    color: #00C4B4;
+    margin-bottom: 35px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .inputGroup {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00C4B4;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 14px 45px;
+    border: 2px solid #B2EBF2;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    background: #E0F7FA;
+    transition: all 0.3s ease;
+  }
+  
+  .input:focus {
+    border-color: #00C4B4;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 196, 180, 0.4);
+    background: white;
+  }
+  
+  .eyeIcon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #00C4B4;
+    transition: color 0.2s ease;
+  }
+  
+  .eyeIcon:hover {
+    color: #0288D1;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .rememberMe {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #0288D1;
+    font-size: 0.95rem;
+  }
+  
+  .forgotLink {
+    color: #0288D1;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+  
+  .forgotLink:hover {
+    color: #00C4B4;
+    text-decoration: underline;
+  }
+  
+  .loginButton {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #00C4B4, #40C4FF);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .loginButton:hover {
+    background: linear-gradient(90deg, #0288D1, #00C4B4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 196, 180, 0.4);
+  }
+  
+  .alternativeLogin {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .googleButton,
+  .phoneButton {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #B2EBF2;
+    border-radius: 10px;
+    background: white;
+    color: #00C4B4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .googleButton:hover,
+  .phoneButton:hover {
+    background: #E0F7FA;
+    border-color: #40C4FF;
+    transform: translateY(-2px);
+  }
+  
+  .registerLink {
+    text-align: center;
+    margin-top: 25px;
+    color: #0288D1;
+    font-size: 0.95rem;
+  }
+  
+  .link {
+    color: #00C4B4;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .link:hover {
+    color: #0288D1;
+    text-decoration: underline;
+  }

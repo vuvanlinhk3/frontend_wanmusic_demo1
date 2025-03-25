@@ -1,0 +1,166 @@
+.releasesContainer {
+    padding: 24px 0;
+    background: #ffffff;
+  }
+  
+  .releasesTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #191414;
+    margin-bottom: 24px;
+    letter-spacing: -0.4px;
+  }
+  
+  .releasesTrack {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 24px;
+    padding-bottom: 16px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .releasesTrack::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .releasesTrack::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  .releasesTrack::-webkit-scrollbar-thumb {
+    background: #535353;
+    border-radius: 4px;
+  }
+  
+  .releasesTrack::-webkit-scrollbar-thumb:hover {
+    background: #404040;
+  }
+  
+  .releaseCard {
+    flex: 0 0 auto;
+    width: 180px;
+    text-align: left;
+    position: relative;
+  }
+  
+  .coverWrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  
+  .coverImage {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: filter 0.3s ease;
+  }
+  
+  .releaseCard:hover .coverImage {
+    filter: brightness(0.85); /* Darkens image slightly on hover */
+  }
+  
+  .releaseName {
+    display: block;
+    font-size: 16px;
+    color: #191414;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+  
+  .releaseCard:hover .releaseName {
+    color: #1DB954; /* Spotify green on hover */
+  }
+  
+  .artistName {
+    display: block;
+    font-size: 14px;
+    color: #B3B3B3;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .playTrigger {
+    display: none;
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background-color: #1DB954; /* Spotify green */
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .playTrigger:hover {
+    background-color: #1ED760; /* Lighter Spotify green */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+  
+  .playTrigger svg {
+    color: #FFFFFF;
+    font-size: 24px;
+    position: relative;
+    top: 1px;
+  }
+  
+  .releaseCard:hover .playTrigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .releasesContainer {
+      padding: 16px 0;
+    }
+  
+    .releasesTitle {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .releaseCard {
+      width: 160px;
+    }
+  
+    .coverImage {
+      height: 160px;
+    }
+  
+    .releaseName {
+      font-size: 14px;
+    }
+  
+    .artistName {
+      font-size: 12px;
+    }
+  
+    .releasesTrack {
+      gap: 16px;
+    }
+  
+    .playTrigger {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .playTrigger svg {
+      font-size: 20px;
+    }
+  }

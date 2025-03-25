@@ -1,0 +1,148 @@
+/* RecentListening.module.css */
+.recentListening {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.recentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.recentTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.recentLink {
+  font-size: 14px;
+  font-weight: 500;
+  color: #00ffa6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.recentLink:hover {
+  color: #00cc85;
+  text-decoration: none;
+}
+
+.recentItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.recentItem {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  width: calc(33.33% - 10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recentItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.recentImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.recentText {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playButton {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #00ffa6;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.3s ease;
+}
+
+.playButton:hover {
+  opacity: 0.8;
+}
+
+.recentItem:hover .playButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playButton svg {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+  .recentItem {
+    width: calc(50% - 7.5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .recentListening {
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  .recentTitle {
+    font-size: 18px;
+  }
+
+  .recentLink {
+    font-size: 12px;
+  }
+
+  .recentItem {
+    width: 100%;
+  }
+
+  .recentImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  .recentText {
+    font-size: 13px;
+  }
+
+  .playButton {
+    width: 25px;
+    height: 25px;
+  }
+
+  .playButton svg {
+    font-size: 14px;
+  }
+}

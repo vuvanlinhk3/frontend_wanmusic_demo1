@@ -1,0 +1,150 @@
+/* Base styles with light theme */
+.container {
+    background-color: #f5f5f5;
+    color: #333333;
+    font-family: sans-serif;
+    margin-bottom: 90px;
+  }
+  
+  /* Navigation */
+  .navButton {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navButton button {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid #e0e0e0;
+    transition: all 0.2s ease;
+  }
+  
+  .navButton button:hover {
+    background-color: #f0f0f0;
+    border-color: #d0d0d0;
+  }
+  
+  /* Tabs */
+  .tab {
+    margin-bottom: 1rem;
+  }
+  
+  /* Playlist Section */
+  .playlistSection {
+    margin-bottom: 1.5rem;
+  }
+  
+  .playlistTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #222222;
+  }
+  
+  .playlistContainer {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  /* Filters */
+  .filterButton {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .filterButton button {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.375rem;
+    border: 1px solid #e0e0e0;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .filterButton button:hover {
+    background-color: #f0f0f0;
+    border-color: #d0d0d0;
+  }
+  
+  /* Song List */
+  .songList {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .container {
+      padding: 0.75rem;
+    }
+  
+    .playlistTitle {
+      font-size: 1.25rem;
+    }
+  
+    .playlistContainer {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+  
+    .navButton button,
+    .filterButton button {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 0.5rem;
+    }
+  
+    .navButton {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .filterButton {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .playlistContainer {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 0.75rem;
+    }
+  
+    .playlistTitle {
+      font-size: 1.125rem;
+    }
+  
+    .songList {
+      padding: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .playlistContainer {
+      grid-template-columns: 1fr;
+    }
+  
+    .playlistTitle {
+      font-size: 1rem;
+    }
+  
+    .navButton button,
+    .filterButton button {
+      width: 100%;
+      padding: 0.5rem;
+    }
+  
+    .songList {
+      padding: 0.75rem;
+    }
+  }

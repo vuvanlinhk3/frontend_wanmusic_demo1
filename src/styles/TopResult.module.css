@@ -1,0 +1,58 @@
+/* TopResult.module.css */
+.card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sectionTitle {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .image {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+  }
+  
+  .info {
+    flex: 1;
+  }
+  
+  .title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .artist {
+    color: #666;
+  }
+  
+  .playButton {
+    background-color: #22c55e; /* Green-500 */
+    padding: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .playButton:hover {
+    background-color: #16a34a; /* Green-600 */
+  }
+  
+  .playIcon {
+    color: white;
+  }

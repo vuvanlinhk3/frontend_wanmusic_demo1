@@ -1,0 +1,91 @@
+/* Global reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Home page layout */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+}
+
+
+
+
+/* Example styles for other components */
+.banner,
+.recent-listening,
+.you-may-want-to-listen,
+.new-release,
+.top-mixes,
+.sentimental-bolero {
+  margin-bottom: 20px; /* Spacing between sections */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+
+
+/* Main content area */
+.main-content {
+  margin-left: 250px; /* Match navbar width */
+  margin-right: 340px; /* Match queue width */
+  margin-top: 80px; /* Match header height */
+  width: calc(100% - 600px); /* Updated remaining width */
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: overlay; /* Thanh cuộn không đẩy nội dung */
+  scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+}
+
+/* WebKit (Chrome, Safari, Edge) */
+.main-content::-webkit-scrollbar {
+  width: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Khi hover hoặc cuộn thì mới hiện thanh cuộn */
+.main-content:hover::-webkit-scrollbar {
+  opacity: 1;
+}
+
+/* Thanh cuộn đẹp hơn */
+.main-content::-webkit-scrollbar-thumb {
+  background: rgba(171, 255, 145, 0.8); /* Màu thanh kéo với độ trong suốt */
+  border-radius: 4px;
+}
+
+/* Mặc định ẩn thanh cuộn */
+.main-content::-webkit-scrollbar-thumb {
+  visibility: hidden;
+}
+
+/* Khi hover vào nội dung thì hiện thanh cuộn */
+.main-content:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+
+
+
+/* Fixed Queue on the right */
+.queue-container {
+  position: fixed;
+  top: 80px; /* Align with navbar, below header */
+  right: 0; /* Stick to the right edge */
+  width: 340px; /* Increased width to match Zing MP3 style, adjust as needed */
+  height: calc(100vh - 80px); /* Full height minus header */
+  background-color: #1a202c; /* Match Queue background from Queue.css */
+  padding: 1rem;
+  z-index: 10; /* Same as navbar to stay above main content */
+  overflow-y: auto; /* Enable vertical scrolling if Queue content overflows */
+}

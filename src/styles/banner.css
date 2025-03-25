@@ -1,0 +1,85 @@
+/* Khung chứa banner */
+.banner-container {
+  width: 100%;
+  overflow: hidden; /* Ẩn phần tràn ra ngoài */
+  padding: 20px 0; /* Khoảng cách trên dưới */
+  height: 220px; /* Chiều cao cố định, có thể điều chỉnh */
+  background-color: #f8f9fa; /* Màu nền sáng, phù hợp với giao diện */
+  position: relative; /* Đảm bảo các phần tử con định vị chính xác */
+  border-radius: 5px;
+}
+
+/* Lưới chứa các hình ảnh */
+.banner-grid {
+  display: flex;
+  flex-wrap: nowrap; /* Giữ các hình trong một hàng */
+  position: relative;
+  width: 100%; /* Đảm bảo sử dụng hết chiều rộng */
+  transition: transform 0.5s ease; /* Hiệu ứng mượt mà khi di chuyển */
+}
+
+/* Hình ảnh trong banner */
+.banner-image {
+  max-width: 360px; /* Giới hạn chiều rộng tối đa cho desktop */
+  width: 100%; /* Hình co giãn theo chiều rộng container */
+  height: 180px; /* Chiều cao cố định */
+  object-fit: cover; /* Hình ảnh vừa khung */
+  margin-right: 20px; /* Khoảng cách giữa các hình, không đè */
+  border-radius: 12px; /* Bo góc mượt hơn */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Đổ bóng đẹp hơn */
+  flex-shrink: 0; /* Không co lại */
+  position: absolute; /* Cho phép di chuyển riêng lẻ */
+  transition: transform 0.5s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt khi hover và di chuyển */
+}
+
+/* Hiệu ứng khi rê chuột */
+.banner-image:hover {
+  transform: scale(1.05) translateZ(20px); /* Phóng to và tạo độ sâu 3D nhẹ */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Đổ bóng đậm hơn khi hover */
+  z-index: 2; /* Đưa hình ảnh lên trên khi hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) { /* Tablet và màn hình nhỏ hơn desktop */
+  .banner-container {
+    height: 160px; /* Giảm chiều cao trên tablet */
+    padding: 15px 0; /* Giảm padding */
+  }
+
+  .banner-image {
+    max-width: 280px; /* Giảm giới hạn chiều rộng tối đa */
+    height: 140px; /* Giảm chiều cao */
+    margin-right: 15px; /* Giảm khoảng cách */
+  }
+}
+
+@media (max-width: 768px) { /* Mobile */
+  .banner-container {
+    height: 120px; /* Giảm chiều cao trên mobile */
+    padding: 10px 0; /* Giảm padding */
+  }
+
+  .banner-grid {
+    width: 100%; /* Đảm bảo sử dụng hết chiều rộng */
+  }
+
+  .banner-image {
+    max-width: 200px; /* Giảm giới hạn chiều rộng tối đa trên mobile */
+    height: 100px; /* Giảm chiều cao */
+    margin-right: 10px; /* Giảm khoảng cách */
+    border-radius: 8px; /* Bo góc nhỏ hơn */
+  }
+}
+
+/* Optional: Thêm hiệu ứng trang trí */
+.banner-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 255, 170, 0.1), rgba(0, 255, 170, 0)); /* Gradient nhẹ theo chủ đề màu của bạn */
+  pointer-events: none; /* Không cản trở tương tác */
+  z-index: 1; /* Dưới các hình ảnh */
+}

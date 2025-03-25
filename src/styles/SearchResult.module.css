@@ -1,0 +1,46 @@
+/* SearchResult.module.css */
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .filterButtons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .filterButton {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-radius: 9999px;
+    border: 1px solid #e5e7eb;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .filterButton:hover {
+    background-color: #22c55e;
+    color: white;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: 1fr 2fr;
+    }
+  }

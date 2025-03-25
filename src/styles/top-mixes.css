@@ -1,0 +1,56 @@
+.top-mixes {
+    margin-bottom: 24px;
+  }
+  
+  .section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  
+  .album-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  @media (min-width: 640px) {
+    .album-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .album-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .album-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+  
+  .album-item {
+    text-align: center;
+  }
+  
+  .album-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .album-title {
+    display: block;
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  .album-subtitle {
+    font-size: 12px;
+    color: #a0a0a0;
+    margin-top: 4px;
+  }

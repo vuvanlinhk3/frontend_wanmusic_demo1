@@ -1,0 +1,164 @@
+/* NewRelease.module.css */
+.newRelease {
+  padding: 24px;
+  background: #f9f9f9; /* Light background */
+  border-radius: 8px;
+}
+
+.newReleaseHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+}
+
+.newReleaseLink {
+  font-size: 14px;
+  font-weight: 500;
+  color: #00ffa6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.newReleaseLink:hover {
+  color: #00cc85;
+  text-decoration: none;
+}
+
+.newReleaseItems {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.newReleaseItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.newReleaseItem:hover {
+  background: #f0f0f0; /* Slight background change on hover */
+}
+
+.newReleaseContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.newReleaseImage {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.newReleaseDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.newReleaseTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.newReleaseSubtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6a6a6a;
+  margin: 2px 0 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.durationContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.newReleaseDuration {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6a6a6a;
+  transition: opacity 0.3s ease;
+}
+
+.ellipsisIcon {
+  display: none;
+  font-size: 24px;
+  color: #1a1a1a;
+  position: absolute;
+  right: 0;
+}
+
+/* On hover, hide the duration and show the ellipsis icon */
+.newReleaseItem:hover .newReleaseDuration {
+  opacity: 0;
+}
+
+.newReleaseItem:hover .ellipsisIcon {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .newRelease {
+    padding: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+  }
+
+  .newReleaseLink {
+    font-size: 12px;
+  }
+
+  .newReleaseItems {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+
+  .newReleaseItem {
+    padding: 6px;
+  }
+
+  .newReleaseImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  .newReleaseTitle {
+    font-size: 14px;
+  }
+
+  .newReleaseSubtitle {
+    font-size: 12px;
+  }
+
+  .newReleaseDuration {
+    font-size: 12px;
+  }
+
+  .ellipsisIcon {
+    font-size: 20px;
+  }
+}

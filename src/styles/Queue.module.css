@@ -1,0 +1,196 @@
+/* Queue.module.css */
+.queueContainer {
+  position: fixed;
+  right: 0;
+  top: 80px;
+  width: 350px;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 1000;
+  border-left: .1rem solid rgba(0,0,0,0.1);
+  padding: 10px;
+}
+
+.queueContent {
+  width: 100%;
+  background: #ffffff;
+}
+
+.queueTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 20px;
+}
+
+.nowPlayingSection,
+.nextSongsSection {
+  margin-bottom: 28px;
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+/* Unified song item styles */
+.songItem,
+.nextSongItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 6px;
+  background: #f7fafc; /* Default background */
+  transition: background 0.2s ease;
+  position: relative; /* For play icon overlay */
+}
+
+/* Active state for Now Playing */
+.songItem.active {
+  background: #e2e8f0; /* Darker background for active state */
+}
+
+/* Hover state for both */
+.songItem:hover,
+.nextSongItem:hover {
+  background: #edf2f7;
+}
+
+.songContent {
+  display: flex;
+  align-items: center;
+  position: relative; /* For play icon overlay */
+}
+
+.albumCover,
+.nextSongImage {
+  width: 44px; /* Unified size */
+  height: 44px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 10px;
+  transition: opacity 0.2s ease;
+}
+
+.songDetails,
+.songInfo {
+  flex-grow: 1;
+}
+
+.songTitle,
+.nextSongTitle {
+  font-size: 14px; /* Unified size */
+  font-weight: 500;
+  color: #2d3748;
+  margin: 0 0 2px 0;
+}
+
+.songSubtitle,
+.nextSongSubtitle {
+  font-size: 12px; /* Unified size */
+  color: #718096;
+  margin: 0;
+}
+
+.songActions,
+.durationContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.songDuration {
+  font-size: 13px;
+  color: #718096;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.actionIcon {
+  font-size: 20px;
+  color: #718096;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: none; /* Hidden by default */
+}
+
+/* Play button overlay */
+.songContent::before {
+  content: '\25B6'; /* Unicode play symbol */
+  position: absolute;
+  top: 50%;
+  left: 22px; /* Center over image */
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+
+/* Overlay background */
+.songContent::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Hover effects */
+.songItem:hover .songDuration,
+.nextSongItem:hover .songDuration {
+  opacity: 0; /* Hide duration */
+}
+
+.songItem:hover .actionIcon,
+.nextSongItem:hover .actionIcon {
+  display: block; /* Show three-dot icon */
+}
+
+.songItem:hover .songContent::before,
+.songItem:hover .songContent::after,
+.nextSongItem:hover .songContent::before,
+.nextSongItem:hover .songContent::after {
+  opacity: 1; /* Show play icon and overlay */
+}
+
+.songItem:hover .albumCover,
+.nextSongItem:hover .nextSongImage {
+  opacity: 0.8; /* Dim image slightly */
+}
+
+.actionIcon:hover {
+  color: #4a5568;
+}
+
+.nextSongsList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (max-width: 1024px) {
+  .queueContainer {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .queueContainer {
+    width: 100%;
+    position: relative;
+    height: auto;
+    border-left: none;
+  }
+}
