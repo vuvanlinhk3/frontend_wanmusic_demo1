@@ -7,13 +7,11 @@
   height: 100vh;
   overflow-y: auto;
   z-index: 1000;
-  border-left: .1rem solid rgba(0,0,0,0.1);
   padding: 10px;
 }
 
 .queueContent {
   width: 100%;
-  background: #ffffff;
 }
 
 .queueTitle {

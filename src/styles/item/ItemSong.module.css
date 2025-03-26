@@ -1,0 +1,105 @@
+.releaseList {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+  }
+  
+  .releaseItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .releaseItem:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .releaseInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .albumImage {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  .releaseTitle {
+    font-size: 15px;
+    font-weight: 500;
+    color: #121212;
+  }
+  
+  .artist {
+    font-size: 13px;
+    color: #535353;
+  }
+  
+  .durationWrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .duration {
+    font-size: 13px;
+    color: #535353;
+  }
+  
+  .iconContainer {
+    cursor: pointer;
+    color: #535353;
+    transition: color 0.2s ease;
+    position: relative; /* Modal will be positioned relative to this */
+  }
+  
+  .iconContainer:hover {
+    color: #121212;
+  }
+  
+  /* Modal Styles (Spotify-like) */
+  .modal {
+    position: absolute;
+    top: 100%; /* Below the three-dot icon */
+    right: 0; /* Aligned to the right edge of iconContainer */
+    margin-top: 4px; /* Small gap below the icon */
+    z-index: 1000;
+  }
+  
+  .modalContent {
+    background-color: #282828;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    padding: 8px 0;
+    min-width: 180px;
+  }
+  
+  .modalOption {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .modalOption:hover {
+    background-color: #3e3e3e;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 20px;
+    color: #535353;
+  }

@@ -1,43 +1,61 @@
 .card {
-    background-color: #374151;
-    padding: 16px;
-    border-radius: 8px;
-  }
-  
-  .header {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  
-  .list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .songItem {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #4b5563;
-    padding: 8px;
-    border-radius: 8px;
-  }
-  
-  .songInfo {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  
-  .image {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-  }
-  
-  .title {
-    font-size: 16px;
-    font-weight: bold;
-  }
+  flex: 2; /* Takes 2/3 of the width */
+  padding: 0; /* No padding since it has no background */
+}
+
+.header {
+  font-size: 24px;
+  font-weight: 700;
+  color: #121212;
+  margin-bottom: 16px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.songItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.songItem:hover {
+  background-color: #f0f0f0; /* Light gray hover effect for song items */
+}
+
+.songInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.image {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #121212;
+  margin: 0;
+}
+
+p {
+  font-size: 14px;
+  color: #535353;
+  margin: 2px 0 0;
+}
+
+.songItem p:last-child {
+  font-size: 14px;
+  color: #535353; /* Duration text */
+}

@@ -32,20 +32,36 @@ body {
   border-radius: 8px;
 }
 
-
+:root{
+ --margin_components:5px;
+}
+.components_color{
+  background-color: #F5F5F5;
+  border-radius: 0.5rem;
+  margin: var( --margin_components);
+}
 
 /* Main content area */
 .main-content {
-  margin-left: 250px; /* Match navbar width */
-  margin-right: 340px; /* Match queue width */
+  margin-left: calc(250px + (var( --margin_components) * 2)); /* Match navbar width */
   margin-top: 80px; /* Match header height */
-  width: calc(100% - 600px); /* Updated remaining width */
+  width: calc(100% - 600px - (var( --margin_components) * 4)); /* Updated remaining width */
+  flex-grow: 1;
   padding: 20px;
+  overflow-y: overlay; /* Thanh cuộn không đẩy nội dung */
+  scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+}
+.main-content_components{
+  margin-left: calc(250px + (var( --margin_components) * 2)); /* Match navbar width */
+  margin-top: 80px; /* Match header height */
+  width: calc(100% - 600px - (var( --margin_components) * 4)); /* Updated remaining width */
   flex-grow: 1;
   overflow-y: overlay; /* Thanh cuộn không đẩy nội dung */
   scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
 }
-
+.components_color_margin_top{
+  margin-top: calc(80px + var(--margin_components)); /* Match header height */
+}
 /* WebKit (Chrome, Safari, Edge) */
 .main-content::-webkit-scrollbar {
   width: 6px;

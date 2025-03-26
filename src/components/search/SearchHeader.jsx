@@ -7,7 +7,7 @@ const SearchHeader = () => {
   const [activeFilter, setActiveFilter] = useState('ALL');
 
   return (
-    <div className={styles.header}>
+    <div className={`${styles.header}`}>
       <div className={styles.buttonContainer}>
         {filters.map((filter) => (
           <button

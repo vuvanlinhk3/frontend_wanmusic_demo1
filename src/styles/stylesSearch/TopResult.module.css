@@ -1,60 +1,95 @@
-/* styles/stylesSearch/TopResult.module.css */
 .card {
-    background-color: #ffffff; /* White background like Spotify */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
-    border: 1px solid #e5e5e5; /* Light border */
-  }
-  
-  .title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #181818; /* Dark gray text for contrast */
-    margin-bottom: 16px;
-  }
-  
-  .content {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Increased spacing for a cleaner look */
-  }
-  
-  .image {
-    width: 100px; /* Slightly larger image */
-    height: 100px;
-    border-radius: 8px;
-    object-fit: cover; /* Ensures image fits nicely */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle image shadow */
-  }
-  
-  .songTitle {
-    font-size: 22px; /* Larger title for emphasis */
-    font-weight: 700;
-    color: #181818; /* Dark text */
-    margin-bottom: 4px;
-  }
-  
-  p {
-    font-size: 16px;
-    color: #535353; /* Softer gray for artist name */
-  }
-  
-  .playButton {
-    background-color: #1db954; /* Spotify's green */
-    padding: 14px; /* Larger button */
-    border-radius: 50%; /* Circular button */
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease; /* Smooth hover effects */
-  }
-  
-  .playButton:hover {
-    transform: scale(1.05); /* Slight scale on hover */
-    background-color: #1ed760; /* Lighter green on hover */
-  }
-  
-  .playIcon {
-    color: #ffffff; /* White icon */
-    font-size: 20px; /* Slightly larger icon */
-  }
+  flex: 1;
+  position: relative;
+  min-width: 20rem;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #121212;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  height: 226px; /* Matches height of 4 song items */
+  cursor: pointer;
+}
+
+.content:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.songTitle {
+  font-size: 24px;
+  font-weight: 900;
+  color: #121212;
+  margin: 0;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 15px;
+  color: #535353;
+  margin: 4px 0 0;
+  font-weight: 400;
+}
+
+.playButton {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  background-color: #1db954;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.content:hover .playButton {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.playButton:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.playIcon {
+  color: #ffffff;
+  font-size: 26px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .playIcon {
+  transform: rotate(360deg);
+}

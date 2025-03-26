@@ -1,9 +1,17 @@
 /* styles/stylesSearch/SearchHeader.module.css */
+:root{
+  --margin_components:5px;
+ }
 .header {
-    width: 100%;
-    padding: 20px 0;
+    width: calc(100% - 600px - (var( --margin_components) * 4)); /* Updated remaining width */
+    padding: 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Adjusted for light background */
-    background-color: #ffffff; /* Added light background */
+    position:fixed;
+    z-index: 10;
+    top: 80px;
+    background-color: #F5F5F5;
+    margin-top: var(--margin_components);
+    border-radius: 0.5rem;
   }
   
   .buttonContainer {
@@ -11,7 +19,6 @@
     justify-content: flex-start;
     align-items: center;
     gap: 12px;
-    padding: 0 20px;
   }
   
   .button {

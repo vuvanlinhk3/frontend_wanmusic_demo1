@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../styles/Library.module.css';
 import { Favorite } from '@mui/icons-material';
 import RecentListening from '../components/RecentListening';
-import ItemAlbum from '../components/ItemAlbum';
+import ItemAlbum from '../components/item/ItemAlbum';
 import NewReleaseMusic from '../components/NewReleaseMusic';
 
 const Library = () => {

@@ -8,7 +8,7 @@ import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 
 export default function Navbar() {
   return (
-    <div className="navbar-container">
+    <div className="navbar-container components_color">
       {/* Left Sidebar */}
       <nav className="navbar-sidebar">
         <h2 className="sidebar-title">Browse Music</h2>

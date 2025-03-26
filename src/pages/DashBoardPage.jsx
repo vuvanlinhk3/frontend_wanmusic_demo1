@@ -48,7 +48,7 @@ const DashBoardPage = () => {
 
 
       <Queue/>
-      <ModelPlayMusic />
+      {/* <ModelPlayMusic /> */}
     </div>
   );
 };

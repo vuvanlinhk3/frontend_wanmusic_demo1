@@ -1,11 +1,19 @@
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+:root{
+  --margin_components:5px;
+ }
+.container{
+  padding-bottom: 90px;
 }
-
-@media (min-width: 1024px) {
-  .grid-container {
-    grid-template-columns: 1fr 2fr;
-  }
+.gridContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 32px;
+  border-radius: 8px;
+  padding-top: 20px;
+  margin-top: calc(54px + var(--margin_components));
+}
+.container_contents{
+  padding: 20px;
+  
 }

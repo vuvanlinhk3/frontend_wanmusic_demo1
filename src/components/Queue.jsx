@@ -21,7 +21,7 @@ const Queue = () => {
   ];
 
   return (
-    <div className={styles.queueContainer}>
+    <div className={`${styles.queueContainer} components_color`}>
       <div className={styles.queueContent}>
         <h2 className={styles.queueTitle}>Queue</h2>
         
