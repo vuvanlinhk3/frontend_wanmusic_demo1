@@ -1,0 +1,43 @@
+/* styles/stylesSearch/SearchSong.module.css */
+.container {
+  background-color: #ffffff; /* Light background */
+  border-radius: 8px;
+  padding: 16px;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr 60px; /* Adjusted for more balanced spacing */
+  align-items: center;
+  padding: 8px 8px;
+  border-bottom: 1px solid #e5e5e5; /* Light separator */
+  color: #535353; /* Gray text for header */
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.index {
+  text-align: center;
+}
+
+.title {
+  padding-left: 2px; /* Align with SongCard image */
+}
+
+.album {
+  padding-left: 0px;
+}
+
+.durationIcon {
+  text-align: right;
+  padding-right: 44px; /* Align with SongCard duration */
+}
+
+/* Optional: Style adjustments for SongCard within SearchSong */
+.container :global(.songCard) {
+  padding: 8px 16px;
+  margin-top: 8px;
+}

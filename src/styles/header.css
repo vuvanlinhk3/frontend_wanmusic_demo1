@@ -5,7 +5,7 @@
 :root {
   --primary-color: #00ffaa; /* Màu xanh lá chính */
   --secondary-color: #008f73; /* Màu xanh lá đậm hơn cho hiệu ứng */
-  --background-color: #f8f9fa; /* Màu nền sáng */
+  --background-color: #F5F5F5; /* Màu nền sáng */
   --text-color: #333; /* Màu chữ mặc định */
   --text-color-white: #fff; /* Màu chữ trắng (thêm vào) */
   --font-family: 'Exo 2', sans-serif; /* Font chữ */
@@ -45,7 +45,6 @@ body {
   width: 100%; /* Full width */
   height: 80px; /* Adjust height as needed */
   background-color: var(--background-color);
-  border-bottom: 0.063rem solid var(--primary-color);
   padding: 20px;
   z-index: 11; /* Above navbar and content */
 }

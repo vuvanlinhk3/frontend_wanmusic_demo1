@@ -1,0 +1,159 @@
+/* styles/item/SongCard.module.css */
+.releaseList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.releaseItem {
+  display: grid;
+  grid-template-columns: 40px 44px 1fr 1fr 120px; /* Added track number column */
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.releaseItem:hover {
+  background-color: #f0f0f0;
+}
+
+.trackNumber {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number {
+  font-size: 15px;
+  color: #535353;
+  text-align: center;
+  transition: opacity 0.2s ease;
+}
+
+.playIcon {
+  font-size: 20px;
+  color: #121212;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.2s ease;
+}
+
+/* Show play icon and hide number on hover */
+.releaseItem:hover .number {
+  opacity: 0;
+}
+
+.releaseItem:hover .playIcon {
+  opacity: 1;
+}
+
+.albumImage {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.titleArtist {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 8px;
+}
+
+.releaseTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: #121212;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.artist {
+  font-size: 13px;
+  color: #535353;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.album {
+  font-size: 13px;
+  color: #737373;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 8px;
+}
+
+.durationWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-self: end;
+}
+
+.duration {
+  font-size: 13px;
+  color: #535353;
+}
+
+.iconContainer {
+  opacity: 0;
+  cursor: pointer;
+  color: #535353;
+  transition: color 0.2s ease;
+  position: relative;
+}
+.releaseItem:hover .iconContainer{
+  opacity: 1;
+}
+.iconContainer:hover {
+  color: #121212;
+}
+
+/* Modal Styles (Spotify-like) */
+.modal {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #282828;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 8px 0;
+  min-width: 180px;
+}
+
+.modalOption {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.modalOption:hover {
+  background-color: #3e3e3e;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #535353;
+}
