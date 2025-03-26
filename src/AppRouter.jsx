@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import DashBoardPage from './pages/DashBoardPage.jsx';
 import Login from './pages/Login.jsx';
 import SignUp from './pages/SignUp.jsx';
+import Library from './pages/Library.jsx';
 
 const AppRouter = () => {
   return (
@@ -13,6 +14,9 @@ const AppRouter = () => {
 
         {/* Route đến DashBoardPage */}
         <Route path="/dashboard" element={<DashBoardPage />} />
+
+        {/* Route đến DashBoardPage */}
+        <Route path="/library" element={<Library />} />
 
         {/* Route đến login */}
         <Route path="/login" element={<Login/>} />
