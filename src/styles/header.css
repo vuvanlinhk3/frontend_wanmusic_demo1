@@ -3,11 +3,11 @@
 
 /* Theme Variables */
 :root {
-  --primary-color: #00ffaa; /* Màu xanh lá chính */
+  --primary-color: #00C4B4; /* Màu xanh lá chính */
   --secondary-color: #008f73; /* Màu xanh lá đậm hơn cho hiệu ứng */
   --background-color: #F5F5F5; /* Màu nền sáng */
   --text-color: #333; /* Màu chữ mặc định */
-  --text-color-white: #fff; /* Màu chữ trắng (thêm vào) */
+  --text-color-white: #fff; /* Màu chữ trắng */
   --font-family: 'Exo 2', sans-serif; /* Font chữ */
   --font-size-base: 1rem; /* Kích thước cơ bản của font chữ */
   --border-radius: 0.313rem; /* Kích thước border-radius */
@@ -42,24 +42,23 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  width: 100%; /* Full width */
-  height: 80px; /* Adjust height as needed */
+  height: 75px;
   background-color: var(--background-color);
   padding: 20px;
-  z-index: 11; /* Above navbar and content */
+  z-index: 11;
 }
 
 /* Fixed Navbar below the Header on the left */
 .navbar {
   position: fixed;
-  top: 80px; /* Match header height */
+  top: 80px;
   left: 0;
-  width: 250px; /* Adjust width as needed */
-  height: calc(100vh - 80px); /* Full height minus header */
-  background-color: #1a1a1a; /* Example background color */
+  width: 250px;
+  height: calc(100vh - 80px);
+  background-color: #1a1a1a;
   color: var(--text-color-white);
   padding: 20px;
-  z-index: 10; /* Below header but above content */
+  z-index: 10;
 }
 
 /* Logo */
@@ -67,7 +66,7 @@ body {
   width: 20rem;
 }
 .header__logo .logo__image {
-  width: 3.125rem; /* Kích thước logo */
+  width: 3.125rem;
   height: auto;
 }
 
@@ -119,10 +118,11 @@ body {
   display: flex;
   width: 20rem;
   justify-content: flex-end;
+  align-items: center;
 }
 .notification__container {
   position: relative;
-  background-color: var(--primary-color);
+  background-color: transparent;
   border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
@@ -130,22 +130,75 @@ body {
   align-items: center;
   justify-content: center;
   margin-right: 0.938rem;
+  transition: all 0.2s linear;
+}
+.notification__container:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .notification__icon {
-  color: var(--text-color-white);
+  color: var(--text-color);
   font-size: 1.5rem;
 }
-.notification__badge {
+.notification__dot {
   position: absolute;
-  top: 0.125rem;
-  right: 0.125rem;
-  background-color: #ff4136;
-  color: var(--text-color-white);
-  font-size: 0.625rem;
-  font-weight: bold;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: var(--primary-color);
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
-  padding: 0.125rem 0.375rem;
-  line-height: 1;
+  box-shadow: 0 0 8px var(--primary-color);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* User Avatar */
+.user__container {
+  position: relative;
+}
+.user__avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.user__avatar:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+.user__dropdown {
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  width: 10rem;
+  z-index: 12000;
+}
+.dropdown__item {
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.dropdown__item:hover {
+  background-color: var(--background-color);
+  color: var(--primary-color);
 }
 
 /* Buttons */

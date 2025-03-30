@@ -18,6 +18,43 @@ body {
 }
 
 
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 10% 10%;
+  }
+  100% {
+    background-position: 0% 10%;
+  }
+}
+
+.background_app {
+  position: fixed;
+  background: linear-gradient(
+    135deg,
+    #00C4B4 0%,    /* Cyan nhạt */
+    #40C4FF 25%,   /* Xanh dương nhạt */
+    #F1F8E9 50%,   /* Trắng xanh nhạt */
+    #FFD700 75%,   /* Vàng nhạt */
+    #FF6F61 100%   /* Cam nhạt */
+  );
+  background-size: 200% 200%;
+  animation: gradientFlow 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+
+
 
 
 /* Example styles for other components */
@@ -35,10 +72,15 @@ body {
 :root{
  --margin_components:5px;
 }
-.components_color{
-  background-color: #F5F5F5;
+.components_color {
+  background: rgba(255, 255, 255, 0.8); /* Nền trắng trong suốt 20% */
+  backdrop-filter: blur(12px); /* Làm mờ nền */
+  -webkit-backdrop-filter: blur(12px); /* Hỗ trợ trình duyệt Webkit */
   border-radius: 0.5rem;
-  margin: var( --margin_components);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+.margin-rl_components{
+  margin: var(--margin_components);
 }
 
 /* Main content area */
@@ -50,6 +92,9 @@ body {
   padding: 20px;
   overflow-y: overlay; /* Thanh cuộn không đẩy nội dung */
   scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+  position: relative;
+  z-index: 10;
+  margin-bottom: var(--margin_components);
 }
 .main-content_components{
   margin-left: calc(250px + (var( --margin_components) * 2)); /* Match navbar width */
@@ -58,9 +103,16 @@ body {
   flex-grow: 1;
   overflow-y: overlay; /* Thanh cuộn không đẩy nội dung */
   scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+  position: relative;
+  z-index: 10;
+  margin-bottom: var(--margin_components);
 }
 .components_color_margin_top{
   margin-top: calc(80px + var(--margin_components)); /* Match header height */
+}
+
+.height_minus_10_notheader{
+  height: calc(100vh - 80px - 10px);
 }
 /* WebKit (Chrome, Safari, Edge) */
 .main-content::-webkit-scrollbar {

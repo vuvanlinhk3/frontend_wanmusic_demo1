@@ -39,7 +39,7 @@ const Library = () => {
         // Add more sample albums as needed
       ];
   return (
-    <div className={`${styles.container} main-content`}>
+    <div className={`components_color_margin_top ${styles.container} main-content components_color`}>
       {/* Navigation */}
       <div className={styles.navButton}>
         <button className={styles.navButton}>All</button>

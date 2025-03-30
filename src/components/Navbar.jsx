@@ -5,6 +5,7 @@ import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import HistoryIcon from "@mui/icons-material/History";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
+import UnlockFeatures from "./unlock/UnlockFeatures";
 
 export default function Navbar({ setActiveSection }) {
   const [activeItem, setActiveItem] = useState("Home"); // Default active item is "Home"
@@ -15,7 +16,7 @@ export default function Navbar({ setActiveSection }) {
   };
 
   return (
-    <div className="navbar-container components_color">
+    <div className="navbar-container components_color margin-rl_components height_minus_10_notheader">
       <nav className="navbar-sidebar">
         <h2 className="sidebar-title">Browse Music</h2>
         <ul className="sidebar-menu">
@@ -28,6 +29,10 @@ export default function Navbar({ setActiveSection }) {
               <span>Home</span>
             </a>
           </li>
+          
+          {/* <UnlockFeatures/> */}
+
+
           <li
             className={`menu-item ${activeItem === "Library" ? "active-dashboard" : ""}`}
             onClick={() => handleItemClick("Library", "Library")}

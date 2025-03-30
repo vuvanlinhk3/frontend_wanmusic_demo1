@@ -1,5 +1,5 @@
 // src/pages/DashBoardPage.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Header from '../components/Header.jsx';
 import Queue from '../components/Queue.jsx';
@@ -11,9 +11,50 @@ import ModelPlayMusic from '../components/ModelPlayMusic.jsx';
 import MusicSection from './MusicSection.jsx';
 import Library from './Library.jsx';
 import SearchResult from './SearchResult.jsx';
-
+import SkeletonLoading from '../components/loading/SkeletonLoading.jsx'
+import Loading from '../components/loading/Loading.jsx'
+import EditProfile from './EditProfile.jsx';
 const DashBoardPage = () => {
+
+  const userData = {
+    username: 'vanlinhk3',
+    email: 'vantinh13022003@gmail.com',
+    gender: 'Nam',
+    dobDay: '12',
+    dobMonth: '',
+    dobYear: '2003',
+    nationality: 'Việt Nam',
+  };
+  const handleSave = () => {
+    console.log('Profile saved');
+  };
+  
+  const handleCancel = () => {
+    console.log('Cancelled');
+  };
+
+
+
+
+
   const [activeSection, setActiveSection] = useState('ContainerMain'); // Mặc định là SearchResult
+
+
+  const ContainerMainWithLoading = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }, []);
+
+    return isLoading ? <SkeletonLoading /> : <ContainerMain />;
+  };
+
+
 
   const renderSection = () => {
     switch (activeSection) {
@@ -26,19 +67,25 @@ const DashBoardPage = () => {
       case 'SearchResult':
         return <SearchResult />;
       case 'ContainerMain':
-        return <ContainerMain />;
+       return <ContainerMainWithLoading />;
+      case 'EditProfile':
+        return <EditProfile userData={userData} onSave={handleSave} onCancel={handleCancel} />;
       default:
         return <SearchResult />;
     }
   };
 
   return (
+    <>
+    <div className='background_app'></div>
     <div className="home-page">
       <Navbar setActiveSection={setActiveSection} />
-      <Header />
+      <Header setActiveSection={setActiveSection}/>
       {renderSection()}
       <Queue />
     </div>
+    </>
+    
   );
 };
 

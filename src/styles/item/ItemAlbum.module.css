@@ -1,9 +1,11 @@
-
+.ItemAlbum{
+  margin-top: 32px;
+}
 .sectionTitle {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: #000000;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .albumGrid {
@@ -11,7 +13,7 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   gap: 16px;
-  padding-bottom: 16px;
+  padding-bottom: 14px;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
@@ -150,7 +152,7 @@
 
   .sectionTitle {
     font-size: 20px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
 
   .albumItem {
