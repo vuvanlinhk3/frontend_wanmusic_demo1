@@ -1,5 +1,6 @@
-// Login.js
-import React, { useState } from 'react';
+// src/pages/Login.jsx
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Login.module.css';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -7,27 +8,56 @@ import GoogleIcon from '@mui/icons-material/Google';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
-import logo from "../assets/logo/logoms.png"
+import logo from '../assets/logo/logoms.png';
+import { AuthContext } from '../context/AuthContext.jsx';
+import { login } from '../api/authApi';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const { login: loginContext } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ email, password, rememberMe });
+    setError(null);
+    setLoading(true);
+
+    try {
+      const response = await login(email, password);
+      if (!response || !response.token || !response.user) {
+        throw new Error('Invalid response from server');
+      }
+      const { token, user } = response;
+
+      loginContext(user, token);
+      navigate('/dashboard');
+    } catch (err) {
+      setError(err.message || 'An error occurred during login');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
         <div className={styles.loginLogo}>
-            <div className={styles.dLogo}><a className={styles.aLogo} href='/dashboard' ><img src={logo} alt='logo' /></a></div>
-            <h2 className={styles.title}>Login</h2>
+          <div className={styles.dLogo}>
+            <a className={styles.aLogo} href="/dashboard">
+              <img src={logo} alt="logo" />
+            </a>
+          </div>
+          <h2 className={styles.title}>Login</h2>
         </div>
-        
+
+        {error && <div className={styles.error}>{error}</div>}
+
         <form onSubmit={handleSubmit}>
           {/* Email Input */}
           <div className={styles.inputGroup}>
@@ -53,7 +83,7 @@ const Login = () => {
               className={styles.input}
               required
             />
-            <span 
+            <span
               className={styles.eyeIcon}
               onClick={() => setShowPassword(!showPassword)}
             >
@@ -78,8 +108,8 @@ const Login = () => {
           </div>
 
           {/* Login Button */}
-          <button type="submit" className={styles.loginButton}>
-            Login
+          <button type="submit" className={styles.loginButton} disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
           </button>
 
           {/* Alternative Login Options */}

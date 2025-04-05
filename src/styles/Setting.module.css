@@ -1,0 +1,202 @@
+/* Setting.module.css */
+.container {
+    color: #1a1a1a;
+    padding: 32px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #111827;
+    letter-spacing: -0.5px;
+    position: relative;
+  }
+  
+  .title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #3b82f6;
+    border-radius: 2px;
+  }
+  
+  .section {
+    margin-bottom: 32px;
+  }
+  
+  .sectionTitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
+  
+  .item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .itemLeft {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  .itemLeft span:first-child {
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  .subText {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 4px;
+    display: block;
+    font-style: italic;
+  }
+  
+  .itemRight {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .icon {
+    color: #4b5563;
+    font-size: 22px;
+    transition: color 0.3s ease;
+  }
+  
+  .item:hover .icon {
+    color: #3b82f6;
+  }
+  
+  .arrowIcon {
+    color: #9ca3af;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .item:hover .arrowIcon {
+    color: #3b82f6;
+  }
+  
+  .languageSelect {
+    padding: 6px 24px 6px 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+  }
+  
+  .languageSelect:hover {
+    border-color: #3b82f6;
+    background-color: #ffffff;
+  }
+  
+  .languageSelect:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+  
+  .reloadButton {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .reloadButton:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .reloadIcon {
+    color: #3b82f6;
+    font-size: 18px;
+  }
+  
+  /* Toggle Switch Styles */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 26px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d1d5db;
+    transition: 0.3s;
+    border-radius: 26px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #ffffff;
+    transition: 0.3s;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  input:checked + .slider {
+    background-color: #3b82f6;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }

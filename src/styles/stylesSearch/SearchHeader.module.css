@@ -3,13 +3,13 @@
   --margin_components:5px;
  }
 .header {
-    width: calc(100% - 600px - (var( --margin_components) * 4)); /* Updated remaining width */
+    /* width: calc(100% - 600px - (var( --margin_components) * 4)); */
     padding: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Adjusted for light background */
-    position:fixed;
-    z-index: 10;
-    top: 80px;
-    background-color: #F5F5F5;
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+    /* position:fixed; */
+    /* z-index: 10; */
+    /* top: 80px; */
+    /* background-color: #F5F5F5; */
     margin-top: var(--margin_components);
     border-radius: 0.5rem;
   }

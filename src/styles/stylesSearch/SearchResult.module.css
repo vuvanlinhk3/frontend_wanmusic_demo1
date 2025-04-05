@@ -14,6 +14,6 @@
 }
 .container_contents{
   padding: 20px;
-  margin-top: calc(54px + var(--margin_components));
+  /* margin-top: calc(54px + var(--margin_components)); */
 
 }

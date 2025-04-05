@@ -1,4 +1,3 @@
-// SignUp.js
 import React, { useState } from 'react';
 import styles from '../styles/SignUp.module.css';
 import Visibility from '@mui/icons-material/Visibility';
@@ -10,8 +9,8 @@ import GoogleIcon from '@mui/icons-material/Google';
 import PhoneIcon from '@mui/icons-material/Phone';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CircleIcon from '@mui/icons-material/Circle';
-import logo from "../assets/logo/logoms.png"
-
+import logo from "../assets/logo/logoms.png";
+import { signup, login } from '../api/authApi'; // Import cả signup và login
 
 const SignUp = () => {
   const [step, setStep] = useState(1);
@@ -62,7 +61,7 @@ const SignUp = () => {
     };
   };
 
-  const handleNext = (e) => {
+  const handleNext = async (e) => {
     e.preventDefault();
     if (step === 1 && formData.email) {
       setStep(2);
@@ -75,7 +74,35 @@ const SignUp = () => {
     } else if (step === 3 && formData.username && formData.day && formData.month && formData.year && formData.gender) {
       setStep(4);
     } else if (step === 4) {
-      console.log(formData); // Xử lý submit ở đây
+      try {
+        // Gọi API signup
+        const signupResponse = await signup(
+          formData.username,
+          formData.email,
+          formData.password,
+          formData.day,
+          formData.month,
+          formData.year,
+          formData.gender,
+          formData.marketingOptOut,
+          formData.dataSharing
+        );
+        console.log('Đăng ký thành công:', signupResponse);
+
+        // Tự động đăng nhập ngay sau khi đăng ký
+        const loginResponse = await login(formData.email, formData.password);
+        console.log('Đăng nhập thành công:', loginResponse);
+
+        // Lưu token vào localStorage (hoặc bạn có thể dùng context/Redux)
+        localStorage.setItem('token', loginResponse.token);
+        localStorage.setItem('user', JSON.stringify(loginResponse.user));
+
+        // Chuyển hướng người dùng đến dashboard
+        window.location.href = '/dashboard';
+      } catch (error) {
+        console.error('Lỗi:', error.message);
+        alert(error.message); // Hiển thị lỗi cho người dùng
+      }
     }
   };
 

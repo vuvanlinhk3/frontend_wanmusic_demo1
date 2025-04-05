@@ -14,6 +14,8 @@ import SearchResult from './SearchResult.jsx';
 import SkeletonLoading from '../components/loading/SkeletonLoading.jsx'
 import Loading from '../components/loading/Loading.jsx'
 import EditProfile from './EditProfile.jsx';
+import Setting from './Setting.jsx'
+import Profile from './Profile.jsx';
 const DashBoardPage = () => {
 
   const userData = {
@@ -70,6 +72,10 @@ const DashBoardPage = () => {
        return <ContainerMainWithLoading />;
       case 'EditProfile':
         return <EditProfile userData={userData} onSave={handleSave} onCancel={handleCancel} />;
+      case 'Setting':
+        return <Setting />;
+      case 'Profile':
+        return <Profile />;
       default:
         return <SearchResult />;
     }

@@ -99,13 +99,13 @@ function Header({ setActiveSection }) {
                   </div>
                   <div
                     className="dropdown__item"
-                    onClick={() => handleNavigation("/profile")}
+                    onClick={() => handleItemClick("Profile")}
                   >
                     Profile
                   </div>
                   <div
                     className="dropdown__item"
-                    onClick={() => handleNavigation("/settings")}
+                    onClick={() => handleItemClick("Setting")}
                   >
                     Settings
                   </div>

@@ -7,8 +7,7 @@ import Library from './pages/Library.jsx';
 
 const AppRouter = () => {
   return (
-    <Router>
-      <Routes>
+    <Routes>
         {/* Route mặc định chuyển hướng tới /dashboard */}
         <Route path="/" element={<Navigate to="/dashboard" />} />
 
@@ -25,7 +24,6 @@ const AppRouter = () => {
         {/* Route không tìm thấy */}
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
-    </Router>
   );
 };
 
