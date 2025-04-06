@@ -39,7 +39,7 @@
 
 .albumItem {
   flex: 0 0 auto;
-  width: 180px;
+  /* width: 180px; */
   text-align: left;
   position: relative;
   background: transparent; /* No card background */
@@ -75,7 +75,7 @@
 }
 
 .albumImage {
-  width: 100%;
+  width: 180px;
   height: 180px;
   object-fit: cover;
   border-radius: 4px; /* Slight rounding like in the image */

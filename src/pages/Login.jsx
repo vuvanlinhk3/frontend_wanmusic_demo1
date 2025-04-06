@@ -1,6 +1,6 @@
 // src/pages/Login.jsx
-import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from '../styles/Login.module.css';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -22,6 +22,24 @@ const Login = () => {
 
   const { login: loginContext } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation(); // Để xử lý callback từ Google
+
+  // Xử lý callback từ Google (nếu backend redirect lại với query params)
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    const token = query.get('token');
+    const user = query.get('user');
+
+    if (token && user) {
+      try {
+        const parsedUser = JSON.parse(user); // User được gửi dưới dạng chuỗi JSON
+        loginContext(parsedUser, token);
+        navigate('/dashboard');
+      } catch (err) {
+        setError('Failed to process Google login');
+      }
+    }
+  }, [location, loginContext, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,6 +60,12 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  // Hàm xử lý đăng nhập bằng Google
+  const handleGoogleLogin = () => {
+    // Chuyển hướng người dùng đến endpoint /auth/google trên backend
+    window.location.href = 'http://localhost:3000/auth/google/login';
   };
 
   return (
@@ -114,7 +138,11 @@ const Login = () => {
 
           {/* Alternative Login Options */}
           <div className={styles.alternativeLogin}>
-            <button className={styles.googleButton}>
+            <button
+              type="button" // Ngăn form submit khi nhấn nút Google
+              className={styles.googleButton}
+              onClick={handleGoogleLogin}
+            >
               <GoogleIcon /> Sign in with Google
             </button>
             <button className={styles.phoneButton}>

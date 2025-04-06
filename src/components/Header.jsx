@@ -1,38 +1,28 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../styles/header.css";
-import _logo from "../assets/logo/logoms.png";
-import SearchIcon from "@mui/icons-material/Search";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import { Avatar } from "@mui/material";
-import EditProfile from "../pages/EditProfile";
+// src/components/Header.jsx
+import React, { useContext, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import '../styles/header.css';
+import _logo from '../assets/logo/logoms.png';
+import SearchIcon from '@mui/icons-material/Search';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Avatar } from '@mui/material';
+import { AuthContext } from '../context/AuthContext.jsx';
 
 function Header({ setActiveSection }) {
-
-
-  const handleItemClick = ( section) => {
-    setActiveSection(section); // Switch the section in DashBoardPage
-  };
-
-
+  const { user, token, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // Simulate logged-in state for testing
-
-  // Simulate user data
-  const user = {
-    name: "User Name",
-    avatar: "https://via.placeholder.com/40", // Placeholder image
-  };
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleUserClick = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
   const handleLogout = () => {
-    setIsAuthenticated(false); // Simulate logout
+    logout();
     setIsDropdownOpen(false);
-    navigate("/login");
+    navigate('/login');
   };
 
   const handleNavigation = (path) => {
@@ -41,11 +31,24 @@ function Header({ setActiveSection }) {
   };
 
   const handleSignUpClick = () => {
-    navigate("/signup");
+    navigate('/SignUp');
   };
 
   const handleLoginClick = () => {
-    navigate("/login");
+    navigate('/login');
+  };
+
+  const handleItemClick = (section) => {
+    setActiveSection(section);
+    setIsDropdownOpen(false);
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      setActiveSection('SearchResult');
+      navigate(`/dashboard?query=${searchQuery}`);
+    }
   };
 
   return (
@@ -65,13 +68,16 @@ function Header({ setActiveSection }) {
             type="text"
             placeholder="Tìm kiếm bài hát, album, nghệ sĩ..."
             className="search__input"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleSearch(e)}
           />
         </div>
       </div>
 
       {/* Notification and User Profile or Sign Up/Login Buttons */}
       <div className="header__actions">
-        {isAuthenticated ? (
+        {user && token ? (
           <>
             {/* Notification Icon (only when authenticated) */}
             <div className="notification__container">
@@ -83,29 +89,27 @@ function Header({ setActiveSection }) {
             <div className="user__container">
               <Avatar
                 className="user__avatar"
-                src={user.avatar}
-                alt={user.name}
+                src={user.avatar_url || 'https://via.placeholder.com/40'}
+                alt={user.username || 'User'}
                 onClick={handleUserClick}
               />
               {isDropdownOpen && (
                 <div className="user__dropdown">
                   <div
-                    className="dropdown__item"                    
-                    onClick={() => handleItemClick("EditProfile")}
-
-
+                    className="dropdown__item"
+                    onClick={() => handleItemClick('EditProfile')}
                   >
                     Account
                   </div>
                   <div
                     className="dropdown__item"
-                    onClick={() => handleItemClick("Profile")}
+                    onClick={() => handleItemClick('Profile')}
                   >
                     Profile
                   </div>
                   <div
                     className="dropdown__item"
-                    onClick={() => handleItemClick("Setting")}
+                    onClick={() => handleItemClick('Setting')}
                   >
                     Settings
                   </div>

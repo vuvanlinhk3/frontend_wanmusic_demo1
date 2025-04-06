@@ -47,4 +47,26 @@ const signup = async (username, email, password, day, month, year, gender, marke
     }
   };
 
-export { login, signup };
+  const completeGoogleSignup = async (data) => {
+    try {
+      const response = await fetch(`${BASE_URL}/auth/google/complete-signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        credentials: 'include', // Gửi cookie session
+      });
+  
+      const result = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to complete Google signup');
+      }
+  
+      return result;
+    } catch (error) {
+      throw new Error(error.message || 'An error occurred during Google signup completion');
+    }
+  };
+export { login, signup,completeGoogleSignup };
