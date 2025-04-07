@@ -43,11 +43,24 @@ function Header({ setActiveSection }) {
     setIsDropdownOpen(false);
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      setActiveSection('SearchResult');
-      navigate(`/dashboard?query=${searchQuery}`);
+      try {
+        const response = await fetch(`http://localhost:3000/search?q=${encodeURIComponent(searchQuery)}`, {
+          headers: {
+            Authorization: token ? `Bearer ${token}` : '',
+          },
+        });
+        if (!response.ok) {
+          throw new Error('Search failed');
+        }
+        const searchData = await response.json();
+        setActiveSection('SearchResult');
+        navigate(`/dashboard?query=${encodeURIComponent(searchQuery)}`, { state: { searchData } });
+      } catch (error) {
+        console.error('Error fetching search results:', error);
+      }
     }
   };
 

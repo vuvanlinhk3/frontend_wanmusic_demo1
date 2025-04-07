@@ -1,5 +1,5 @@
 // src/api/authApi.js
-const BASE_URL = 'http://localhost:3000'; // URL của backend, có thể lấy từ .env nếu cần
+const BASE_URL = 'http://localhost:3000';
 
 // Hàm đăng nhập
 const login = async (email, password) => {
@@ -24,7 +24,7 @@ const login = async (email, password) => {
   }
 };
 
-// Hàm đăng ký (dùng cho SignUp.jsx sau này)
+// Hàm đăng ký
 const signup = async (username, email, password, day, month, year, gender, marketingOptOut, dataSharing) => {
     try {
       const response = await fetch(`${BASE_URL}/auth/signup`, {
@@ -41,7 +41,7 @@ const signup = async (username, email, password, day, month, year, gender, marke
         throw new Error(data.message || 'Signup failed');
       }
   
-      return data; // Trả về { message, token, user }
+      return data;
     } catch (error) {
       throw new Error(error.message || 'An error occurred during signup');
     }

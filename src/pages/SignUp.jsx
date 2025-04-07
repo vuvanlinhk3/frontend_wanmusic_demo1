@@ -36,10 +36,10 @@ const SignUp = () => {
     const googleFlag = urlParams.get('google');
     if (googleFlag === 'true') {
       setIsGoogleSignup(true);
-      setStep(3); // Bỏ qua bước 1 và 2, đi thẳng tới bước 3
+      setStep(3); 
       setFormData((prev) => ({
         ...prev,
-        email: '', // Email sẽ được backend xử lý, không cần nhập
+        email: '', 
       }));
     }
   }, []);
@@ -150,7 +150,7 @@ const SignUp = () => {
 
   const handlePhoneSignUp = () => {
     console.log('Sign up with Phone');
-    // Thêm logic đăng ký bằng số điện thoại ở đây
+
   };
 
   const passwordConditions = checkPasswordConditions(formData.password);

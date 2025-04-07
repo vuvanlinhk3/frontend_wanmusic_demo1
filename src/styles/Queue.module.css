@@ -1,13 +1,11 @@
-/* Queue.module.css */
 .queueContainer {
   position: fixed;
   right: 0;
   top: 80px;
-  width: 350px;
-  height: 100vh;
+  width: 350px; /* Slightly wider for better spacing */
   overflow-y: auto;
   z-index: 10;
-  padding: 10px;
+  padding: 20px; /* Increased padding for better spacing */
 }
 
 .queueContent {
@@ -15,172 +13,51 @@
 }
 
 .queueTitle {
-  font-size: 24px;
+  font-size: 26px; /* Slightly larger title */
   font-weight: 700;
-  color: #2d3748;
-  margin-bottom: 20px;
+  color: #1a202c; /* Darker, richer color */
+  margin-bottom: 24px;
+  letter-spacing: -0.5px; /* Tighten spacing for a modern look */
 }
 
 .nowPlayingSection,
 .nextSongsSection {
-  margin-bottom: 28px;
+  margin-bottom: 32px; /* Increased spacing between sections */
 }
 
 .sectionSubtitle {
-  font-size: 16px;
+  font-size: 18px; /* Larger subtitle */
   font-weight: 600;
-  color: #4a5568;
-  margin-bottom: 12px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #edf2f7;
-}
-
-/* Unified song item styles */
-.songItem,
-.nextSongItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  border-radius: 6px;
-  background: #f7fafc; /* Default background */
-  transition: background 0.2s ease;
-  position: relative; /* For play icon overlay */
-}
-
-/* Active state for Now Playing */
-.songItem.active {
-  background: #e2e8f0; /* Darker background for active state */
-}
-
-/* Hover state for both */
-.songItem:hover,
-.nextSongItem:hover {
-  background: #edf2f7;
-}
-
-.songContent {
-  display: flex;
-  align-items: center;
-  position: relative; /* For play icon overlay */
-}
-
-.albumCover,
-.nextSongImage {
-  width: 44px; /* Unified size */
-  height: 44px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-right: 10px;
-  transition: opacity 0.2s ease;
-}
-
-.songDetails,
-.songInfo {
-  flex-grow: 1;
-}
-
-.songTitle,
-.nextSongTitle {
-  font-size: 14px; /* Unified size */
-  font-weight: 500;
   color: #2d3748;
-  margin: 0 0 2px 0;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0; /* Slightly thicker border */
+  letter-spacing: -0.2px;
 }
 
-.songSubtitle,
-.nextSongSubtitle {
-  font-size: 12px; /* Unified size */
-  color: #718096;
-  margin: 0;
+/* Scrollbar styling for a polished look */
+.queueContainer::-webkit-scrollbar {
+  width: 8px;
 }
 
-.songActions,
-.durationContainer {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.songDuration {
-  font-size: 13px;
-  color: #718096;
-  display: block;
-  transition: opacity 0.2s ease;
-}
-
-.actionIcon {
-  font-size: 20px;
-  color: #718096;
-  cursor: pointer;
-  transition: color 0.2s ease;
-  display: none; /* Hidden by default */
-}
-
-/* Play button overlay */
-.songContent::before {
-  content: '\25B6'; /* Unicode play symbol */
-  position: absolute;
-  top: 50%;
-  left: 22px; /* Center over image */
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-  color: #ffffff;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 1;
-}
-
-/* Overlay background */
-.songContent::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 44px;
-  height: 44px;
-  background: rgba(0, 0, 0, 0.5);
+.queueContainer::-webkit-scrollbar-track {
+  background: #f1f5f9;
   border-radius: 4px;
-  opacity: 0;
-  transition: opacity 0.2s ease;
 }
 
-/* Hover effects */
-.songItem:hover .songDuration,
-.nextSongItem:hover .songDuration {
-  opacity: 0; /* Hide duration */
+.queueContainer::-webkit-scrollbar-thumb {
+  background: #a0aec0;
+  border-radius: 4px;
 }
 
-.songItem:hover .actionIcon,
-.nextSongItem:hover .actionIcon {
-  display: block; /* Show three-dot icon */
+.queueContainer::-webkit-scrollbar-thumb:hover {
+  background: #718096;
 }
 
-.songItem:hover .songContent::before,
-.songItem:hover .songContent::after,
-.nextSongItem:hover .songContent::before,
-.nextSongItem:hover .songContent::after {
-  opacity: 1; /* Show play icon and overlay */
-}
-
-.songItem:hover .albumCover,
-.nextSongItem:hover .nextSongImage {
-  opacity: 0.8; /* Dim image slightly */
-}
-
-.actionIcon:hover {
-  color: #4a5568;
-}
-
-.nextSongsList {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
+/* Responsive adjustments */
 @media (max-width: 1024px) {
   .queueContainer {
-    width: 300px;
+    width: 320px;
   }
 }
 
@@ -190,5 +67,15 @@
     position: relative;
     height: auto;
     border-left: none;
+    box-shadow: none;
+    padding: 16px;
+  }
+
+  .queueTitle {
+    font-size: 22px;
+  }
+
+  .sectionSubtitle {
+    font-size: 16px;
   }
 }

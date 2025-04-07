@@ -78,7 +78,7 @@ const ContainerMain = () => {
     // Add more sample releases as needed
   ];
   return (
-    <div className="components_color_margin_top main-content main-content_components components_color">
+    <div className="components_color_margin_top main-content main-content_components components_color height_minus_10_notheader">
       <Banner />
       <RecentListening 
         items={sampleItems}
