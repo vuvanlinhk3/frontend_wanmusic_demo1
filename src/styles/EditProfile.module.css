@@ -1,0 +1,140 @@
+/* Container chính của form */
+.container {
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+  }
+  
+  /* Phần header chứa avatar và thông tin người dùng */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .userInfo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 70px !important;
+    height: 70px !important;
+    margin-right: 15px;
+    border: 3px solid #00ff99;
+  }
+  
+  .userDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .username {
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+  
+  .changePhoto {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #007bff;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Tiêu đề */
+  .title {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  /* Form */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Từng nhóm trong form */
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formGroup label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  /* Input và select */
+  .formGroup input,
+  .formGroup select {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .formGroup input:focus,
+  .formGroup select:focus {
+    border-color: #00ff99;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 255, 153, 0.5);
+  }
+  
+  /* Ngày sinh có 3 ô nhập */
+  .dateFields {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .dateFields input {
+    width: 100px;
+    text-align: center;
+  }
+  
+  /* Button nhóm */
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+  }
+  
+  .cancelButton,
+  .saveButton {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 2rem;
+  }
+  
+  .cancelButton {
+    background: #ccc;
+    color: black;
+  }
+  
+  .cancelButton:hover {
+    background: #bbb;
+  }
+  
+  .saveButton {
+    background: #00ff99;
+    color: white;       
+  }
+  
+  .saveButton:hover {
+    background: #00cc77;
+  }
+  

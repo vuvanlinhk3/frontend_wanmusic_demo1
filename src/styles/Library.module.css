@@ -1,9 +1,7 @@
 /* Base styles with light theme */
 .container {
-    background-color: #f5f5f5;
     color: #333333;
     font-family: sans-serif;
-    margin-bottom: 90px;
   }
   
   /* Navigation */

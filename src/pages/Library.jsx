@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../styles/Library.module.css';
 import { Favorite } from '@mui/icons-material';
 import RecentListening from '../components/RecentListening';
-import ItemAlbum from '../components/ItemAlbum';
+import ItemAlbum from '../components/item/ItemAlbum';
 import NewReleaseMusic from '../components/NewReleaseMusic';
 
 const Library = () => {
@@ -39,7 +39,7 @@ const Library = () => {
         // Add more sample albums as needed
       ];
   return (
-    <div className={`${styles.container} main-content`}>
+    <div className={`components_color_margin_top ${styles.container} main-content components_color`}>
       {/* Navigation */}
       <div className={styles.navButton}>
         <button className={styles.navButton}>All</button>

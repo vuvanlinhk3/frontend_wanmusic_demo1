@@ -2,7 +2,7 @@
 import React from 'react';
 import Banner from '../components/Banner';
 import RecentListening from '../components/RecentListening';
-import ItemAlbum from '../components/ItemAlbum';
+import ItemAlbum from '../components/item/ItemAlbum';
 import NewRelease from '../components/NewRelease';
 import TopMixes from '../components/TopMixes';
 import SentimentalBolero from '../components/SentimentalBolero';
@@ -78,7 +78,7 @@ const ContainerMain = () => {
     // Add more sample releases as needed
   ];
   return (
-    <div className="main-content">
+    <div className="components_color_margin_top main-content main-content_components components_color height_minus_10_notheader">
       <Banner />
       <RecentListening 
         items={sampleItems}

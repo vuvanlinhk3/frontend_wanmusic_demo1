@@ -1,0 +1,62 @@
+/* styles/stylesSearch/SearchHeader.module.css */
+:root{
+  --margin_components:5px;
+ }
+.header {
+    /* width: calc(100% - 600px - (var( --margin_components) * 4)); */
+    padding: 20px;
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+    /* position:fixed; */
+    /* z-index: 10; */
+    /* top: 80px; */
+    /* background-color: #F5F5F5; */
+    margin-top: var(--margin_components);
+    border-radius: 0.5rem;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .button {
+    padding: 8px 20px;
+    background-color: #4b5e73; /* Softer blue-gray for default state */
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .button:hover {
+    background-color: #5d728d; /* Lighter blue-gray for hover */
+  }
+  
+  /* Active state */
+  .button.active {
+    background-color: #10b981; /* Vibrant emerald green for active */
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+  }
+  
+  /* Subtle glow effect for active button */
+  .button.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }

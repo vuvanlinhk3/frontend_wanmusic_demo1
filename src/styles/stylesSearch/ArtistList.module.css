@@ -1,0 +1,36 @@
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #121212;
+  margin: 0;
+}
+
+.allButton {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #535353;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.allButton:hover {
+  color: #121212;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}

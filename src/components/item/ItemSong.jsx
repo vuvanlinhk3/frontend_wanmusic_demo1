@@ -1,0 +1,91 @@
+import React, { useState, useEffect, useRef } from 'react';
+import styles from '../../styles/item/ItemSong.module.css';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
+
+const ItemSong = ({ releases = [], currentlyPlayingId = null }) => {
+  const [selectedSong, setSelectedSong] = useState(null);
+  const modalRef = useRef(null);
+
+  const toggleModal = (song) => {
+    setSelectedSong(selectedSong?.id === song.id ? null : song);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setSelectedSong(null);
+      }
+    };
+
+    if (selectedSong) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [selectedSong]);
+
+  return (
+    <div className={styles.releaseList}>
+      {releases.length > 0 ? (
+        releases.map((release) => (
+          <div 
+            key={release.id} 
+            className={`${styles.releaseItem} ${
+              currentlyPlayingId === release.id ? styles.playing : ''
+            }`}
+          >
+            <div className={styles.releaseInfo}>
+              <div className={styles.imageContainer}>
+                <img
+                  src={release.image}
+                  alt={`Album cover of ${release.title}`}
+                  className={styles.albumImage}
+                />
+                <div className={styles.playOverlay}>
+                  {currentlyPlayingId === release.id ? (
+                    <PauseIcon className={styles.playIcon} />
+                  ) : (
+                    <PlayArrowIcon className={styles.playIcon} />
+                  )}
+                </div>
+              </div>
+              <div>
+                <div className={styles.releaseTitle}>{release.title}</div>
+                <div className={styles.artist}>{release.artist}</div>
+              </div>
+            </div>
+            <div className={styles.durationWrapper}>
+              <span className={styles.duration}>{release.duration}</span>
+              <div className={styles.iconContainer} onClick={() => toggleModal(release)}>
+                <MoreHorizIcon />
+                {selectedSong?.id === release.id && (
+                  <div className={styles.modal} ref={modalRef}>
+                    <div className={styles.modalContent}>
+                      <button className={styles.modalOption}>Add to Playlist</button>
+                      <button className={styles.modalOption}>Like Song</button>
+                      <button className={styles.modalOption}>Share</button>
+                      {release.inPlaylist && (
+                        <button className={styles.modalOption}>Remove from Playlist</button>
+                      )}
+                      {release.downloaded && (
+                        <button className={styles.modalOption}>Delete Download</button>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ))
+      ) : (
+        <div className={styles.loading}>Không có bài hát nào</div>
+      )}
+    </div>
+  );
+};
+
+export default ItemSong;

@@ -1,0 +1,147 @@
+.releaseList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.releaseItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.releaseItem:hover {
+  background-color: #f0f0f0;
+}
+
+.releaseItem.playing {
+  background-color: #f0f0f0; /* Default hover state for playing song */
+}
+
+.releaseInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.imageContainer {
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+
+.albumImage {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.playOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 4px;
+}
+
+.releaseItem:hover .playOverlay,
+.releaseItem.playing .playOverlay {
+  opacity: 1; /* Show play/pause icon on hover or when playing */
+}
+
+.playIcon {
+  color: white;
+  font-size: 20px;
+}
+
+.releaseTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: #121212;
+}
+
+.artist {
+  font-size: 13px;
+  color: #535353;
+}
+
+.durationWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.duration {
+  font-size: 13px;
+  color: #535353;
+}
+
+.iconContainer {
+  opacity: 0;
+  cursor: pointer;
+  color: #535353;
+  transition: color 0.2s ease;
+  position: relative;
+  display: flex;
+}
+
+.releaseItem:hover .iconContainer {
+  opacity: 1;
+}
+
+.iconContainer:hover {
+  color: #121212;
+}
+
+/* Modal Styles (Spotify-like) */
+.modal {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #282828;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 8px 0;
+  min-width: 180px;
+}
+
+.modalOption {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.modalOption:hover {
+  background-color: #3e3e3e;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #535353;
+}

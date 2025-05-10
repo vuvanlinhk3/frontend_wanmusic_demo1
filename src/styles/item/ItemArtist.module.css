@@ -1,0 +1,33 @@
+/* ItemArtist.module.css */
+.card {
+  background-color: #f8f8f8; /* Light gray background */
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: #e8e8e8; /* Slightly darker gray on hover */
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 1; /* Makes it a perfect circle */
+  border-radius: 50%; /* Circular image like Spotify */
+  object-fit: cover;
+  margin-bottom: 12px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow like Spotify */
+}
+
+.card p {
+  color: #121212; /* Dark text for contrast */
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

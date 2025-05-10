@@ -1,5 +1,4 @@
-// SignUp.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/SignUp.module.css';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -10,12 +9,13 @@ import GoogleIcon from '@mui/icons-material/Google';
 import PhoneIcon from '@mui/icons-material/Phone';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CircleIcon from '@mui/icons-material/Circle';
-import logo from "../assets/logo/logoms.png"
-
+import logo from "../assets/logo/logoms.png";
+import { signup, login, completeGoogleSignup } from '../api/authApi'; // Import cả signup và login
 
 const SignUp = () => {
   const [step, setStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
+  const [isGoogleSignup, setIsGoogleSignup] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -28,6 +28,22 @@ const SignUp = () => {
     dataSharing: false,
   });
   const [passwordError, setPasswordError] = useState('');
+
+
+  // Xử lý redirect từ Google
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const googleFlag = urlParams.get('google');
+    if (googleFlag === 'true') {
+      setIsGoogleSignup(true);
+      setStep(3); 
+      setFormData((prev) => ({
+        ...prev,
+        email: '', 
+      }));
+    }
+  }, []);
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -62,7 +78,7 @@ const SignUp = () => {
     };
   };
 
-  const handleNext = (e) => {
+  const handleNext = async (e) => {
     e.preventDefault();
     if (step === 1 && formData.email) {
       setStep(2);
@@ -75,22 +91,66 @@ const SignUp = () => {
     } else if (step === 3 && formData.username && formData.day && formData.month && formData.year && formData.gender) {
       setStep(4);
     } else if (step === 4) {
-      console.log(formData); // Xử lý submit ở đây
+      try {
+        if (isGoogleSignup) {
+          // Gọi API completeGoogleSignup cho đăng ký Google
+          const response = await completeGoogleSignup({
+            username: formData.username,
+            day: formData.day,
+            month: formData.month,
+            year: formData.year,
+            gender: formData.gender,
+            marketingOptOut: formData.marketingOptOut,
+            dataSharing: formData.dataSharing,
+          });
+          console.log('Đăng ký Google thành công:', response);
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('user', JSON.stringify(response.user));
+        } else {
+          // Gọi API signup thông thường
+          const signupResponse = await signup(
+            formData.username,
+            formData.email,
+            formData.password,
+            formData.day,
+            formData.month,
+            formData.year,
+            formData.gender,
+            formData.marketingOptOut,
+            formData.dataSharing
+          );
+          console.log('Đăng ký thành công:', signupResponse);
+
+          // Tự động đăng nhập
+          const loginResponse = await login(formData.email, formData.password);
+          console.log('Đăng nhập thành công:', loginResponse);
+          localStorage.setItem('token', loginResponse.token);
+          localStorage.setItem('user', JSON.stringify(loginResponse.user));
+        }
+
+        // Chuyển hướng tới dashboard
+        window.location.href = '/dashboard';
+      } catch (error) {
+        console.error('Lỗi:', error.message);
+        alert(error.message);
+      }
     }
   };
 
   const handleBack = () => {
-    if (step > 1) setStep(step - 1);
+    if (step > 1 && (!isGoogleSignup || step > 3)) {
+      setStep(step - 1);
+    }
   };
 
   const handleGoogleSignUp = () => {
-    console.log('Sign up with Google');
-    // Thêm logic đăng ký bằng Google ở đây
+    // Điều hướng tới endpoint xác thực Google
+    window.location.href = 'http://localhost:3000/auth/google/signup'; // Thay đổi URL theo backend của bạn
   };
 
   const handlePhoneSignUp = () => {
     console.log('Sign up with Phone');
-    // Thêm logic đăng ký bằng số điện thoại ở đây
+
   };
 
   const passwordConditions = checkPasswordConditions(formData.password);

@@ -1,8 +1,8 @@
 // src/components/YouMayWantToListen.js
 import React from 'react';
-import styles from '../styles/ItemAlbum.module.css';
+import styles from '../../styles/item/ItemAlbum.module.css';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import logo from '../assets/logo/logoms.png'
+import logo from '../../assets/logo/logoms.png'
 const ItemAlbum = ({ 
   albums = [],
   title = ""

@@ -1,0 +1,19 @@
+:root{
+  --margin_components:5px;
+ }
+.container{
+  padding-bottom: 90px;
+}
+.gridContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 32px;
+  border-radius: 8px;
+  padding-top: 20px;
+}
+.container_contents{
+  padding: 20px;
+  /* margin-top: calc(54px + var(--margin_components)); */
+
+}

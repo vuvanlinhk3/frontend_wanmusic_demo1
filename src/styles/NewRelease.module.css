@@ -1,7 +1,6 @@
-/* NewRelease.module.css */
 .newRelease {
   padding: 24px;
-  background: #f9f9f9; /* Light background */
+  background: #f9f9f9;
   border-radius: 8px;
 }
 
@@ -9,11 +8,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .sectionTitle {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: #000000;
   margin: 0;
@@ -38,6 +37,12 @@
   gap: 12px;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .newReleaseItem {
   display: flex;
   align-items: center;
@@ -50,7 +55,7 @@
 }
 
 .newReleaseItem:hover {
-  background: #f0f0f0; /* Slight background change on hover */
+  background: #f0f0f0;
 }
 
 .newReleaseContent {
@@ -111,7 +116,6 @@
   right: 0;
 }
 
-/* On hover, hide the duration and show the ellipsis icon */
 .newReleaseItem:hover .newReleaseDuration {
   opacity: 0;
 }
@@ -134,7 +138,7 @@
   }
 
   .newReleaseItems {
-    grid-template-columns: 1fr; /* 1 column on mobile */
+    grid-template-columns: 1fr;
   }
 
   .newReleaseItem {
